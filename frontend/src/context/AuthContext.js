@@ -80,7 +80,7 @@ export const AuthProvider = ({ children }) => {
         });
 
         if (response.status === 201) {
-            navigate("/login"); // ✅ Replaces history.push
+            navigate("/login");
             swal.fire({
                 title: "Registration Successful, Login Now",
                 icon: "success",
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }) => {
         setAuthTokens(null);
         setUser(null);
         localStorage.removeItem("authTokens");
-        navigate("/login"); // ✅ Replaces history.push
+        navigate("/login"); 
         swal.fire({
             title: "You have been logged out...",
             icon: "success",
