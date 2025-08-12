@@ -30,10 +30,12 @@ function Loginpage() {
             <div className="row g-0">
               <div className="col-md-6 col-lg-5 d-none d-md-block">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                  src="laptopwomen.jpg"
                   alt="login form"
                   className="img-fluid"
-                  style={{ borderRadius: "1rem 0 0 1rem" }}
+                  style={{ marginTop: "80px",
+                    marginLeft:"20px"
+                   }}
                 />
               </div>
               <div className="col-md-6 col-lg-7 d-flex align-items-center">
@@ -119,7 +121,7 @@ function Loginpage() {
     >
       © 2019 - till date Copyright:
       <a className="text-dark" href="https://mdbootstrap.com/">
-        desphixs.com
+        BloomAuth.com
       </a>
     </div>
   </footer>

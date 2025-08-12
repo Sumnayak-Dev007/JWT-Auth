@@ -1,68 +1,61 @@
 import { useContext } from 'react';
-import { jwtDecode } from "jwt-decode"; // <-- changed import
+import { jwtDecode } from "jwt-decode"; 
 import AuthContext from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const { logoutUser } = useContext(AuthContext);
-  const token = localStorage.getItem("authTokens");
-  let user_id = null;
+  const {user, logoutUser} = useContext(AuthContext)
+  const token = localStorage.getItem("authTokens")
 
-  if (token) {
-    try {
-      const accessToken = JSON.parse(token).access; // assuming it's stored as JSON
-      const decoded = jwtDecode(accessToken);
-      user_id = decoded.user_id;
-    } catch (error) {
-      console.error("Invalid token:", error);
-    }
+  if (token){
+    const decoded = jwtDecode(token) 
+    var user_id = decoded.user_id
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="/">
-            <img
-  style={{ width: "80px", padding: "6px" }}
-  src="https://cdn-icons-png.flaticon.com/512/2917/2917999.png"
-  alt="Tulip Logo"
-/>
-        </a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link active" to="/">Home</Link>
-            </li>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img style={{width:"120px", padding:"6px"}} src="https://i.imgur.com/juL1aAc.png" alt="" />
 
-            {!token && (
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              {token === null && 
               <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login">Login</Link>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/login">Login</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/register">Register</Link>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/register">Register</Link>
                 </li>
               </>
-            )}
+              }
 
-            {token && (
+            {token !== null && 
               <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard">Dashboard</a>
                 </li>
-                <li className="nav-item">
-                  <span className="nav-link" onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</span>
+                <li class="nav-item">
+                  <a class="nav-link" onClick={logoutUser} style={{cursor:"pointer"}}>Logout</a>
                 </li>
               </>
-            )}
-          </ul>
+              }   
+              
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-  );
+      </nav>
+    </div>
+  )
 };
 
 export default Navbar;
