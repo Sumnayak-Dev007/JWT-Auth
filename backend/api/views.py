@@ -41,7 +41,7 @@ def testEndPoint(request):
         data = f"Congratulation {request.user}, your API just responded to GET request"
         return Response({'response': data}, status=status.HTTP_200_OK)
     elif request.method == 'POST':
-        text = request.data.get('text')  
+        text = "Hello Buddy!"
         data = f'Congratulation your API just responded to POST request with text: {text}'
         return Response({'response': data}, status=status.HTTP_200_OK)
     return Response({}, status.HTTP_400_BAD_REQUEST)

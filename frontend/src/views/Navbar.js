@@ -16,8 +16,8 @@ const Navbar = () => {
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img style={{width:"120px", padding:"6px"}} src="https://i.imgur.com/juL1aAc.png" alt="" />
+          <a class="navbar-brand" href="/">
+            <img style={{width:"120px", padding:"6px"}} src="https://cdn-icons-png.flaticon.com/512/2917/2917999.png" alt="" />
 
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,8 +25,13 @@ const Navbar = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ">
+              {token !== null && 
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <h5 class="nav-link" >Hey {user.username} ;)</h5>
+                </li>
+              }
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               {token === null && 
               <>
@@ -41,6 +46,7 @@ const Navbar = () => {
 
             {token !== null && 
               <>
+               
                 <li class="nav-item">
                   <a class="nav-link" href="/dashboard">Dashboard</a>
                 </li>

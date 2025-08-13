@@ -25,7 +25,7 @@ function Registerpage() {
   
 
   return (
-    <div>
+    <div className='mt-5'>
       <>
         <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
           <div className="container py-5 h-100">
@@ -38,7 +38,7 @@ function Registerpage() {
                   src="laptopwomen.jpg"
                   alt="login form"
                   className="img-fluid"
-                  style={{ marginTop: "80px",
+                  style={{ marginTop: "100px",
                     marginLeft:"20px"
                    }}
                 />
@@ -52,7 +52,7 @@ function Registerpage() {
                               style={{ color: "#ff6219" }}
                             />
                             <span className="h2 fw-bold mb-0">
-                             🌸 Welcome to <b>Oasis</b>
+                             🌸 Welcome to <b>BloomAuth</b>
                             </span>
                           </div>
                           <h5
@@ -140,7 +140,7 @@ function Registerpage() {
           >
             © 2019 - till date Copyright:
             <a className="text-dark" href="https://mdbootstrap.com/">
-              desphixs.com
+              BloomAuth.com
             </a>
           </div>
           {/* Copyright */}

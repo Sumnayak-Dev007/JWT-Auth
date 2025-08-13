@@ -20,7 +20,7 @@ function Loginpage() {
   }
 
   return (
-    <div>
+    <div className='mt-3'>
       <>
   <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
     <div className="container py-5 h-100">

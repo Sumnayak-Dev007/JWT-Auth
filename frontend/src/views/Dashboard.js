@@ -15,8 +15,35 @@ const Dashboard = () => {
       var image = decode.image
 
     }
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try{
+          const response = await api.get("/test/")
+          setRes(response.data.response)
+        } catch (error) {
+          console.log(error);
+          setRes("Something went wrong")
+        }
+      }
+      fetchData()
+    }, [])
+
+    useEffect(() => {
+      const fetchPostData = async () => {
+        try{
+          const response = await api.post("/test/")
+          setRes(response.data.response)
+        } catch (error) {
+          console.log(error);
+          setRes("Something went wrong")
+        }
+      }
+      fetchPostData()
+    }, [])
+
   return (
-    <div>
+    <div className="mt-5">
       <>
   <div className="container-fluid" style={{ paddingTop: "100px" }}>
     <div className="row">
@@ -32,7 +59,7 @@ const Dashboard = () => {
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <span data-feather="file" />
-                Orders
+                Cart
               </a>
             </li>
             <li className="nav-item">
@@ -50,7 +77,7 @@ const Dashboard = () => {
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <span data-feather="bar-chart-2" />
-                Reports
+                Orders
               </a>
             </li>
             <li className="nav-item">
@@ -61,7 +88,7 @@ const Dashboard = () => {
             </li>
           </ul>
           <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Saved reports</span>
+            <span>Reports</span>
             <a className="d-flex align-items-center text-muted" href="#">
               <span data-feather="plus-circle" />
             </a>
@@ -70,7 +97,7 @@ const Dashboard = () => {
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <span data-feather="file-text" />
-                Current month
+                After-Sales
               </a>
             </li>
             <li className="nav-item">
